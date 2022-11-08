@@ -5,7 +5,7 @@ import './Banner.css'
 
 const Banner = () => {
     return (
-        <div className="carousel w-full py-12">
+        <div className="carousel w-full pb-12">
             <div id="slide1" className="carousel-item relative w-full">
                 <img src={img1} className="w-full" />
 
@@ -14,14 +14,14 @@ const Banner = () => {
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-2/4">
 
                     <div className="absolute flex justify-end transform -translate-y-1/2 left-24 top-1/4">
-                        <h1 className='text-white text-6xl font-bold banner-heading'>
+                        <h1 className='text-white text-5xl font-bold banner-heading'>
                             We Fight For Your Justice <br />
                             As Like A Friend
                         </h1>
                     </div>
 
 
-                    <div className="w-1/2 absolute flex justify-start transform -translate-y-1/2 left-24 top-48">
+                    <div className="w-1/2 absolute flex justify-start transform -translate-y-1/2 left-24 top-32">
                         <button className="btn contact-btn rounded-none mr-5 border-none text-white">Contact Us Now</button>
                     </div>
 
@@ -33,13 +33,13 @@ const Banner = () => {
                 <img src={img2} className="w-full" />
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-2/4">
                     <div className="absolute flex justify-end transform -translate-y-1/2 left-24 top-1/4">
-                        <h1 className='text-white text-6xl font-bold banner-heading'>
+                        <h1 className='text-white text-5xl font-bold banner-heading'>
                             We Fight For Your Justice <br />
                             As Like A Friend
                         </h1>
                     </div>
 
-                    <div className="w-1/2 absolute flex justify-start transform -translate-y-1/2 left-24 top-48">
+                    <div className="w-1/2 absolute flex justify-start transform -translate-y-1/2 left-24 top-32">
                         <button className="btn contact-btn rounded-none mr-5 border-none text-white">Contact Us Now</button>
                     </div>
 
