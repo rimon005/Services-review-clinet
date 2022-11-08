@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import logo from '../../../assets/download.png'
 const Header = () => {
     const menuItems = <>
-        <li><Link> Home</Link></li>
+        <li><Link to='/'> Home</Link></li>
         <li><Link> About</Link></li>
         <li><Link> Services</Link></li>
         <li><Link> Contact </Link></li>
         <li><Link> My Reviews </Link></li>
-        <li><Link> Login</Link></li>
+        <li><Link to='/login'> Login</Link></li>
 
     </>
     return (

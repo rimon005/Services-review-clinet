@@ -1,0 +1,15 @@
+.login-card{
+    border: 1px solid #C0B596;
+}
+.sign{
+    color: #C0B596;
+}
+.login-btn{
+    background: #C0B596;
+}
+.login-btn:hover{
+    background: #d2c59e;
+}
+.input-field{
+    border: 1px solid #d2c59e;
+}
