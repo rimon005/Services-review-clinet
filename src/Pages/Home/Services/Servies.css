@@ -11,3 +11,10 @@ hr,
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
 }
+.details-card{
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.facility h2 , p {
+    color: #c0b596;
+}
