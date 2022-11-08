@@ -1,15 +1,35 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import loginImg from '../../../assets/istockphoto-1281150061-612x612.jpg'
+import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 
 const Register = () => {
+    const {createUser} = useContext(AuthContext);
+
+    const handleCreateUser = event => {
+        event.preventDefault();
+        const form = event.target;
+        // const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        createUser(email , password)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(e => console.error(e))
+
+    }
+
     return (
         <div className="hero w-full mb-12">
             <div className="hero-content flex-col lg:flex-row">
                 <div className="text-center lg:text-left mr-14">
                     <img className='w-4/5' src={loginImg} alt="" />
                 </div>
-                <form className="card login-card p-6 flex-shrink-0 w-full max-w-sm rounded-none bg-base-100">
+                <form onSubmit={handleCreateUser} className="card login-card p-6 flex-shrink-0 w-full max-w-sm rounded-none bg-base-100">
                     <h1 className="text-3xl text-center mt-2 font-bold">Register Please!</h1>
                     <div className="card-body">
                         <div className="form-control">
