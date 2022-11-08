@@ -25,8 +25,8 @@ const Banner = () => {
                         <button className="btn contact-btn rounded-none mr-5 border-none text-white">Contact Us Now</button>
                     </div>
 
-                    <a href="#slide2" className="btn btn-circle">❮</a>
-                    <a href="#slide2" className="btn btn-circle">❯</a>
+                    <a href="#slide2" className="btn btn-circle slider">❮</a>
+                    <a href="#slide2" className="btn btn-circle slider">❯</a>
                 </div>
             </div>
             <div id="slide2" className="carousel-item relative w-full">
@@ -43,8 +43,8 @@ const Banner = () => {
                         <button className="btn contact-btn rounded-none mr-5 border-none text-white">Contact Us Now</button>
                     </div>
 
-                    <a href="#slide1" className="btn btn-circle">❮</a>
-                    <a href="#slide1" className="btn btn-circle">❯</a>
+                    <a href="#slide1" className="btn btn-circle slider">❮</a>
+                    <a href="#slide1" className="btn btn-circle slider">❯</a>
                 </div>
             </div>
         </div>

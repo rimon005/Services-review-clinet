@@ -1,6 +1,13 @@
-.contact-btn{
+.contact-btn , .slider{
     background: #C0B596;
+    border: none;
 }
-.contact-btn:hover{
+.contact-btn:hover , .slider:hover{
     background: #c8ba95;
+}
+.about{
+    color: #C0B596;
+}
+.slider{
+    color: white;
 }
