@@ -1,14 +1,49 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/download.png'
+import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 const Header = () => {
+    const {logOut , user} = useContext(AuthContext)
+
+    const handleLogOut = () => {
+        logOut()
+        .then()
+
+    }
+
+    const profile = <>
+    
+    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                        <div className="w-10 rounded-full">
+                            <img src="https://placeimg.com/80/80/people" />
+                        </div>
+                    </label>
+                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                        <li>
+                            <a className="justify-between">
+                                Profile
+                                <span className="badge">{user?.disPlayName}</span>
+                            </a>
+                        </li>
+                        <li>{user?.email}</li>
+                        <li onClick={handleLogOut}><Link> LogOut</Link></li>
+                    </ul>
+    </>
     const menuItems = <>
         <li><Link to='/'> Home</Link></li>
         <li><Link> About</Link></li>
         <li><Link> Services</Link></li>
-        <li><Link> Contact </Link></li>
-        <li><Link> My Reviews </Link></li>
-        <li><Link to='/login'> Login</Link></li>
+        <li><Link> Contact </Link></li>    
+        
+        {
+            user?.uid ?
+            <>
+            <li><Link> My Reviews </Link></li>
+            </>
+            :
+            <li><Link to='/login'> Login</Link></li>
+        }
 
     </>
     return (
@@ -31,21 +66,12 @@ const Header = () => {
                     {menuItems}
                 </ul>
                 <div className="dropdown dropdown-end">
-                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full">
-                            <img src="https://placeimg.com/80/80/people" />
-                        </div>
-                    </label>
-                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                        <li>
-                            <a className="justify-between">
-                                Profile
-                                <span className="badge">New</span>
-                            </a>
-                        </li>
-                        <li><a>Settings</a></li>
-                        <li><Link> LogOut</Link></li>
-                    </ul>
+                    {
+                        user?.uid ?
+                        profile
+                        :
+                        ''
+                    }
                 </div>
             </div>
         </div>
