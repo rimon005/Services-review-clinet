@@ -1,3 +1,18 @@
+Install react app
+install firebase , react-router-dom , tailwind , daisyui 
+crate header, footer into pages folder
+crate banner carousel 
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
