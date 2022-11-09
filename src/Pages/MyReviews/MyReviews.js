@@ -1,10 +1,43 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useContext } from 'react';
+import { useState } from 'react';
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import DisplayReview from './DisplayReview';
 
 const MyReviews = () => {
+    const {user} = useContext(AuthContext);
+    // console.log(user.email);
+    const [reviews , setReviews ] = useState([]);
+    useEffect(()=> {
+        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+        .then(res => res.json())
+        .then(data => {
+            // console.log(data);
+            setReviews(data)
+        })
+    },[user?.email])
     return (
-        <div>
-            
-        </div>
+        <div className="overflow-x-auto w-full py-16">
+        <table className="table w-full">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Job</th>
+                    <th>Favorite Color</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody>
+                {
+                   reviews.map(review => <DisplayReview
+                   review={review}
+                   key={review._id}
+                   ></DisplayReview>)
+                }
+            </tbody>
+        </table>
+    </div>
     );
 };
 

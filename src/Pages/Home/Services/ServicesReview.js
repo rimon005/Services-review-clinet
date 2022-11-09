@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ServicesReview = ({ review }) => {
-    console.log(review);
+    // console.log(review);
     const { reviewMassage, name, reviewTitle, user } = review;
     return (
         <div className=' review pl-12 py-5 my-3 text-black'>
@@ -11,7 +11,7 @@ const ServicesReview = ({ review }) => {
                         user?.photoURL ?
                             <img className="mask mr-6 mb-3 mask-circle w-12 h-12" src={user?.photoURL} alt="" />
                             :
-                            <img className="mask mr-6 mb-3 mask-circle w-12 h-12" src="https://placeimg.com/80/80/people" />
+                            <img className="mask mr-6 mb-3 mask-circle w-12 h-12" src="https://placeimg.com/80/80/people" alt='' />
                     }
                 </div>
                 <div>

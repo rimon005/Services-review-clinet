@@ -34,11 +34,12 @@ const Header = () => {
         <li><Link to='/'> Home</Link></li>
         <li><Link> About</Link></li>
         <li><Link> Contact </Link></li>
+        <li><Link to='/myReviews'> My Reviews </Link></li>
 
         {
             user?.uid ?
                 <>
-                    <li><Link to='/myReviews'> My Reviews </Link></li>
+                    
                 </>
                 :
                 <li><Link to='/login'> Login</Link></li>

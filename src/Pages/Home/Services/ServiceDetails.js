@@ -16,6 +16,7 @@ const ServiceDetails = () => {
         event.preventDefault();
         const form = event.target;
         const name = `${form.firstName.value} ${form.lastName.value}`;
+        const email = user?.email || 'unregistered'
         const reviewTitle = form.reviewTitle.value;
         const reviewMassage = form.reviewMassage.value;
         // console.log(name , email , reviewTitle , reviewMassage);
@@ -23,9 +24,11 @@ const ServiceDetails = () => {
         const review = {
             name,
             user,
+            email,
             service_id,
             reviewTitle,
-            reviewMassage
+            reviewMassage,
+            id:_id
         }
         fetch('http://localhost:5000/reviews', {
             method:"POST" , 
@@ -43,7 +46,7 @@ const ServiceDetails = () => {
 
 
     useEffect(()=> {
-        fetch(`http://localhost:5000/reviews?service_id=${service_id}`)
+        fetch(`http://localhost:5000/review?service_id=${service_id}`)
         .then(res => res.json())
         .then(data => {
             // console.log(data);
