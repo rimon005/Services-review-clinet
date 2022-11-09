@@ -15,6 +15,15 @@ hr,
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
-.facility h2 , p {
+.facility h2 , p , .title{
     color: #c0b596;
+}
+.review-btn:hover{
+  background: #c0b596;
+  color: white;
+}
+.review {
+  border-bottom: 1px solid gray;
+  width: 90%;
+  margin: 0 auto;
 }

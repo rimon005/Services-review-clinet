@@ -13,14 +13,6 @@ const Services = () => {
         })
     },[])
 
-    const handleServices = () => {
-        fetch('http://localhost:5000/services')
-        .then(res => res.json())
-        .then(data => {
-          console.log(data);
-        })
-    }
-
     return (
         <div>
             <div className='text-center services'>
@@ -37,7 +29,7 @@ const Services = () => {
                 }
             </div>
             <Link to='/services' className=' flex justify-center'>
-                <button onClick={handleServices} className='btn contact-btn rounded-none border-none text-white'>More service</button>
+                <button className='btn contact-btn rounded-none border-none text-white'>More service</button>
             </Link>
         </div>
     );

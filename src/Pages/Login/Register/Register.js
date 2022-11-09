@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import loginImg from '../../../assets/istockphoto-1281150061-612x612.jpg'
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
     const {createUser} = useContext(AuthContext);
@@ -46,7 +47,7 @@ const Register = () => {
                         </div>
                     </div>
                     <p className='text-gray-400 font-medium text-xl text-center mb-4'>Or Sign In with</p>
-
+                        <SocialLogin />
                     <p className='text-gray-400 font-medium text-center mb-4'>Already have an account? <Link to='/login' className='sign font-medium'>Login</Link></p>
                 </form>
 

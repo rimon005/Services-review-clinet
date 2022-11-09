@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginImg from '../../../assets/istockphoto-1281150061-612x612.jpg'
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
+import SocialLogin from '../SocialLogin/SocialLogin';
 import './Login.css'
 
 const Login = () => {
@@ -48,7 +49,7 @@ const Login = () => {
                         </div>
                     </div>
                     <p className='text-gray-400 font-medium text-xl text-center mb-4'>Or Sign In with</p>
-            
+                        <SocialLogin />
                     <p className='text-gray-400 font-medium text-center mb-4'>Don't Have an account? <Link to='/register' className='sign font-medium'>Register</Link></p>
                 </form>
 

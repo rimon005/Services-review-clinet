@@ -4,50 +4,49 @@ import { Link } from 'react-router-dom';
 import logo from '../../../assets/download.png'
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 const Header = () => {
-    const {logOut , user} = useContext(AuthContext)
+    const { logOut, user } = useContext(AuthContext)
 
     const handleLogOut = () => {
         logOut()
-        .then()
+            .then()
 
     }
 
     const profile = <>
-    
-    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full">
-                            <img src="https://placeimg.com/80/80/people" />
-                        </div>
-                    </label>
-                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                        <li>
-                            <a className="justify-between">
-                                Profile
-                                <span className="badge">{user?.disPlayName}</span>
-                            </a>
-                        </li>
-                        <li>{user?.email}</li>
-                        <li onClick={handleLogOut}><Link> LogOut</Link></li>
-                    </ul>
+
+        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+            <div className="w-10 rounded-full">
+                <img src="https://placeimg.com/80/80/people" />
+            </div>
+        </label>
+        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+            <li>
+                <Link className="justify-between">
+                    Profile
+                    <span className="badge">{user?.disPlayName}</span>
+                </Link>
+            </li>
+            <li>{user?.email}</li>
+            <li onClick={handleLogOut}><Link> LogOut</Link></li>
+        </ul>
     </>
     const menuItems = <>
         <li><Link to='/'> Home</Link></li>
         <li><Link> About</Link></li>
-        <li><Link> Services</Link></li>
-        <li><Link> Contact </Link></li>    
-        
+        <li><Link> Contact </Link></li>
+
         {
             user?.uid ?
-            <>
-            <li><Link> My Reviews </Link></li>
-            </>
-            :
-            <li><Link to='/login'> Login</Link></li>
+                <>
+                    <li><Link to='/myReviews'> My Reviews </Link></li>
+                </>
+                :
+                <li><Link to='/login'> Login</Link></li>
         }
 
     </>
     return (
-        <div className="navbar text-white" style={{background: "#272C3F"}}>
+        <div className="navbar text-white flex justify-between" style={{ background: "#272C3F" }}>
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -57,9 +56,9 @@ const Header = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">
+                <Link to='/' className="btn btn-ghost normal-case text-xl">
                     <img src={logo} alt="" />
-                </a>
+                </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
@@ -68,9 +67,9 @@ const Header = () => {
                 <div className="dropdown dropdown-end">
                     {
                         user?.uid ?
-                        profile
-                        :
-                        ''
+                            profile
+                            :
+                            ''
                     }
                 </div>
             </div>
