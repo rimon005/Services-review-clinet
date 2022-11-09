@@ -3,8 +3,8 @@ import { useState } from 'react';
 
 const DisplayReview = ({ review , handleDelete , handleUpdate}) => {
     console.log(review);
-    const { name,reviewTitle , price , service_id , user , id} = review;
-    // console.log(id);
+    const { name,reviewTitle , service_id , user , id} = review;
+    console.log(id);
     const [reviewService, setReviewService] = useState({})
     useEffect(()=> {
         fetch(`http://localhost:5000/services/${id}`)

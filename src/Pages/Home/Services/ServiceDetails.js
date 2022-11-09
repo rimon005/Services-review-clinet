@@ -1,47 +1,61 @@
 import React, { useEffect, useState } from 'react';
 import { useContext } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import Facility from './Facility';
 import ServicesReview from './ServicesReview';
 
 const ServiceDetails = () => {
     const {user} = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate()
+    const from = location?.search?.from?.pathname || '/login'
     const service = useLoaderData();
     const { title, img, description, facility , _id , service_id} = service;
 
     const [reviews , setReviews] = useState([])
 
     const handleReview = (event) => {
-        event.preventDefault();
-        const form = event.target;
-        const name = `${form.firstName.value} ${form.lastName.value}`;
-        const email = user?.email || 'unregistered'
-        const reviewTitle = form.reviewTitle.value;
-        const reviewMassage = form.reviewMassage.value;
-        // console.log(name , email , reviewTitle , reviewMassage);
-
-        const review = {
-            name,
-            user,
-            email,
-            service_id,
-            reviewTitle,
-            reviewMassage,
-            id:_id
+        if(!user?.uid){
+            return navigate(from , {replace : true})
         }
-        fetch('http://localhost:5000/reviews', {
-            method:"POST" , 
-            headers: {
-                "content-type" : "application/json"
-            },
-            body: JSON.stringify(review)
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-        })
-        .catch(e => console.error(e))
+        else{
+
+            event.preventDefault();
+            const form = event.target;
+            const name = `${form.firstName.value} ${form.lastName.value}`;
+            const email = user?.email || 'unregistered'
+            const reviewTitle = form.reviewTitle.value;
+            const reviewMassage = form.reviewMassage.value;
+            // console.log(name , email , reviewTitle , reviewMassage);
+    
+            const review = {
+                name,
+                user,
+                email,
+                service_id,
+                reviewTitle,
+                reviewMassage,
+                id:_id
+            }
+            fetch('http://localhost:5000/reviews', {
+                method:"POST" , 
+                headers: {
+                    "content-type" : "application/json"
+                },
+                body: JSON.stringify(review)
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                form.reset()
+                if(data?.acknowledged){
+                    alert('Thanks for review')
+                }
+            })
+            .catch(e => console.error(e))
+        }
+        
     }
 
 
