@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
+import { FaTrashAlt} from 'react-icons/fa';
 
-const DisplayReview = ({ review , handleDelete , handleUpdate}) => {
-    console.log(review);
-    const { name,reviewTitle , service_id , user , id} = review;
-    console.log(id);
+const DisplayReview = ({ review , handleDelete }) => {
+    // console.log(review);
+    const { name,reviewTitle , _id , user , id} = review;
+    // console.log(id);
     const [reviewService, setReviewService] = useState({})
     useEffect(()=> {
-        fetch(`http://localhost:5000/services/${id}`)
+        fetch(`https://services-review-server-rimon005.vercel.app/services/${id}`)
         .then(res => res.json())
         .then(data => {
             // console.log(data);
@@ -18,11 +19,11 @@ const DisplayReview = ({ review , handleDelete , handleUpdate}) => {
 
     return (
         <tr>
-            {/* <th>
+            <th>
                 <label onClick={() => handleDelete(_id)}>
-                    <XCircleIcon />
+                    <FaTrashAlt />
                 </label>
-            </th> */}
+            </th>
             <td>
                 <div className="flex items-center space-x-3">
                     <div className="avatar">

@@ -26,7 +26,7 @@ const Login = () => {
             }
             
 
-            fetch('http://localhost:5000/jwt' , {
+            fetch('https://services-review-server-rimon005.vercel.app/jwt' , {
                 method: "POST",
                 headers: {
                     "content-type" : "application/json"

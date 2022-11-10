@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import LoginLayOuts from "../../Layouts/LoginLayouts/LoginLayOuts";
 import Main from "../../Layouts/Main";
+import AddService from "../../Pages/AddService/AddService";
 import Home from "../../Pages/Home/Home/Home";
 import AllServices from "../../Pages/Home/Services/AllServices";
 import ServiceDetails from "../../Pages/Home/Services/ServiceDetails";
@@ -21,17 +22,21 @@ export const router = createBrowserRouter([
         },
         {
             path:'/service/:id' , 
-            loader: ({params} ) => fetch(`http://localhost:5000/services/${params.id}`),
+            loader: ({params} ) => fetch(`https://services-review-server-rimon005.vercel.app/services/${params.id}`),
             element:<ServiceDetails></ServiceDetails>
         },
         {
             path:'/services', 
             element:<AllServices></AllServices>,
-            loader:() => fetch('http://localhost:5000/allServices')
+            loader:() => fetch('https://services-review-server-rimon005.vercel.app/allServices')
         },
         {
           path:'/myReviews', 
           element: <PrivetRoute><MyReviews /></PrivetRoute>
+        },
+        {
+          path:'/addService', 
+          element: <AddService />
         }
       ]
     },

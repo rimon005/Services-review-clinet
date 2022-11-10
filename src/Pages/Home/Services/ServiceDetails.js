@@ -38,7 +38,7 @@ const ServiceDetails = () => {
                 reviewMassage,
                 id:_id
             }
-            fetch('http://localhost:5000/reviews', {
+            fetch('https://services-review-server-rimon005.vercel.app/reviews', {
                 method:"POST" , 
                 headers: {
                     "content-type" : "application/json"
@@ -60,7 +60,7 @@ const ServiceDetails = () => {
 
 
     useEffect(()=> {
-        fetch(`http://localhost:5000/review?service_id=${service_id}`)
+        fetch(`https://services-review-server-rimon005.vercel.app/review?service_id=${service_id}`)
         .then(res => res.json())
         .then(data => {
             // console.log(data);
@@ -77,7 +77,7 @@ const ServiceDetails = () => {
                 </div>
                 <div className='p-0'>
                     {
-                        facility.map((fa, uid) => <Facility
+                        facility?.map((fa, uid) => <Facility
                             key={uid}
                             fa={fa}
                         ></Facility>)
