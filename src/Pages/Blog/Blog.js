@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Blog.css'
 
 const Blog = () => {
+    useEffect(()=> {
+        document.title = "Barrister | Blog"
+    } ,[])
+    
     return (
         <div>
             <div className='question'>

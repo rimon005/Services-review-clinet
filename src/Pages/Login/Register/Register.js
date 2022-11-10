@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginImg from '../../../assets/istockphoto-1281150061-612x612.jpg'
@@ -10,6 +10,11 @@ const Register = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location?.state?.from?.pathname || '/'
+
+    useEffect(()=> {
+        document.title = "Barrister | Register"
+    } ,[])
+  
 
     const handleCreateUser = event => {
         event.preventDefault();

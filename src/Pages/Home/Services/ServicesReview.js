@@ -22,6 +22,7 @@ const ServicesReview = ({ review }) => {
             <div>
                 <h1 className='text-3xl font-bold text-black'>Review:</h1>
                 <h1 className='font-medium'>{reviewMassage}</h1>
+                
             </div>
         </div>
     );

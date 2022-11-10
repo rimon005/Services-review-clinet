@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const AddService = () => {
+
+
+    useEffect(()=> {
+        document.title = "Barrister | AddServices"
+    } ,[])
+
+
     const handleAddService = e => {
         e.preventDefault()
         const form = e.target;
@@ -14,7 +21,7 @@ const AddService = () => {
             description
         }
 
-        fetch('http://localhost:5000/services', {
+        fetch('https://services-review-server.vercel.app/services', {
             method: 'POST' , 
             headers: {
                 "content-type" : "application/json"

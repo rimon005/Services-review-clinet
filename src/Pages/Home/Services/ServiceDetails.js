@@ -67,6 +67,11 @@ const ServiceDetails = () => {
             setReviews(data)
         })
     },[service_id])
+
+    useEffect(()=> {
+        document.title = "Barrister | ServiceDetails"
+    } ,[])
+    
     return (
         <div>
             <div className="card lg:card-side grid details-card bg-base-100 p-7">

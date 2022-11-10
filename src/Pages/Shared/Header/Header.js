@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useEffect} from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/download.png'
@@ -42,7 +42,7 @@ const Header = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <Link to='/' className="btn btn-ghost normal-case text-xl">
+                <Link  className="btn btn-ghost normal-case text-xl">
                     <img src={logo} alt="" />
                 </Link>
             </div>

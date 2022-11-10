@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import { Link } from 'react-router-dom';
 import '../Services/Servies.css'
 
 const Service = ({ service }) => {
+
+    // useEffect(()=> {
+    //     document.title = "Barrister | services"
+    // } ,[])
     // console.log(service);
     const { description, title, img, price, _id } = service;
     return (

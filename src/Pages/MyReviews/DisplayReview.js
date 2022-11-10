@@ -1,20 +1,21 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { FaTrashAlt} from 'react-icons/fa';
+import { FaTrashAlt, FaEdit } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
-const DisplayReview = ({ review , handleDelete }) => {
+const DisplayReview = ({ review, handleDelete , handleUpdate}) => {
     // console.log(review);
-    const { name,reviewTitle , _id , user , id} = review;
+    const { name, reviewTitle, _id, user, id, reviewMassage } = review;
     // console.log(id);
     const [reviewService, setReviewService] = useState({})
-    useEffect(()=> {
+    useEffect(() => {
         fetch(`https://services-review-server-rimon005.vercel.app/services/${id}`)
-        .then(res => res.json())
-        .then(data => {
-            // console.log(data);
-            setReviewService(data)
-        })
-    },[id])
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data);
+                setReviewService(data)
+            })
+    }, [id])
 
 
     return (
@@ -40,18 +41,42 @@ const DisplayReview = ({ review , handleDelete }) => {
                     </div>
                 </div>
             </td>
+            <p className='mb-7'>
+                {reviewMassage}
+            </p>
             <td>
                 {user?.email}
                 <br />
                 <span>Fee${reviewService?.price}</span>
             </td>
-            <td>Purple</td>
-            {/* <th>
-                <button 
-                onClick={()=> handleUpdate(_id)}
-                className="btn btn-ghost btn-xs">{status ? status : 'pending'}</button>
-            </th> */}
+            <td>
+
+
+                {/* The button to open modal */}
+                <label htmlFor="my-modal" className="btn">
+                    <FaEdit />
+                </label>
+
+                {/* Put this part before </body> tag */}
+                <input type="checkbox" id="my-modal" className="modal-toggle" />
+                <div className="modal">
+                    <div className="modal-box">
+                        <div className='py-12 p-6 mb-12'>
+                            <form onSubmit={() => handleUpdate(_id)}>
+                                <div className='my-5'>
+                                    <textarea name='reviewMassage' defaultValue={reviewMassage} required className="textarea textarea-warning w-full rounded-none h-48" placeholder="reviewMassage"></textarea>
+                                </div>
+                                <input type="submit" value="Update Review" className="btn contact-btn rounded-none mr-5 border-none text-white" />
+                            </form>
+                        </div>
+                        <div className="modal-action">
+                            <label htmlFor="my-modal" className="btn">Back</label>
+                        </div>
+                    </div>
+                </div>
+            </td>
         </tr>
+
     );
 };
 

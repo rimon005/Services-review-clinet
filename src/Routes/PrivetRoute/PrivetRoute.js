@@ -7,7 +7,7 @@ const PrivetRoute = ({children}) => {
     const {user , loading} = useContext(AuthContext);
     const location = useLocation()
     if(loading){
-        return <h1>Loading.....</h1>
+        return <button className="btn btn-square loading"></button>
     }
     if(user){
         return children;
