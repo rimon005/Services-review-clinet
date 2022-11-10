@@ -1,14 +1,15 @@
-Install react app
-install firebase , react-router-dom , tailwind , daisyui 
-crate header, footer into pages folder
-crate banner carousel 
 
-
-
-
-
-
-
+# install react app 
+# install firebase , react-router-dom , tailwind , daisyui 
+# crate header, footer into pages folder
+# crate banner carousel 
+# create about , contact footer 
+# load 3 data from server
+# load all data from server
+# load service details 
+# add review 
+# show review 
+# show review in my review route 
 
 
 
